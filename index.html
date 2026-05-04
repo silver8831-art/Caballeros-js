@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saint Seiya — Caballeros del Zodiaco</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;900&family=Lato:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/modal.css" />
+  <link rel="stylesheet" href="css/cart.css" />
+  <link rel="stylesheet" href="css/episodes.css" />
+</head>
+<body>
+  <div class="cosmos-bg"></div>
+
+  <div class="modal-overlay" id="authModal">
+    <div class="modal" role="dialog" aria-modal="true">
+      <button class="modal-close" id="authClose" aria-label="Cerrar">X</button>
+      <div class="modal-logo">Saint Seiya</div>
+      <div class="modal-subtitle">Portal de los Santos</div>
+      <div class="modal-tabs">
+        <div class="modal-tab active" data-tab="register">Registro</div>
+        <div class="modal-tab" data-tab="login">Iniciar Sesión</div>
+      </div>
+      <form class="modal-form active" id="formRegister" autocomplete="off">
+        <div class="form-group">
+          <label for="reg-name">Nombre de Santo</label>
+          <input type="text" id="reg-name" placeholder="Ej: Seiya de Pegaso" required />
+        </div>
+        <div class="form-group">
+          <label for="reg-email">Correo Estelar</label>
+          <input type="email" id="reg-email" placeholder="correo@cosmos.com" required />
+        </div>
+        <div class="form-group">
+          <label for="reg-pass">Contraseña Cósmica</label>
+          <input type="password" id="reg-pass" placeholder="Mínimo 6 caracteres" required minlength="6" />
+        </div>
+        <div class="form-group">
+          <label for="reg-pass2">Confirmar Contraseña</label>
+          <input type="password" id="reg-pass2" placeholder="Repite tu contraseña" required />
+        </div>
+        <button type="submit" class="form-submit">Unirse a los Santos</button>
+        <div class="modal-msg" id="regMsg"></div>
+      </form>
+      <form class="modal-form" id="formLogin" autocomplete="off">
+        <div class="form-group">
+          <label for="log-email">Correo Estelar</label>
+          <input type="email" id="log-email" placeholder="correo@cosmos.com" required />
+        </div>
+        <div class="form-group">
+          <label for="log-pass">Contraseña Cósmica</label>
+          <input type="password" id="log-pass" placeholder="Tu contraseña" required />
+        </div>
+        <button type="submit" class="form-submit">Encender mi Cosmo</button>
+        <div class="modal-msg" id="logMsg"></div>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast"></div>
+
+  <nav>
+    <div class="nav-logo">Saint Seiya</div>
+    <ul class="nav-links">
+      <li><a href="#historia">Historia</a></li>
+      <li><a href="#personajes">Caballeros</a></li>
+      <li><a href="#episodios">Episodios</a></li>
+      <li><a href="#shop">Tienda</a></li>
+      <li><a href="#timeline">Cronología</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="nav-cart-btn" id="openCart" type="button">Carrito <span class="nav-cart-count" id="cartCount">0</span></button>
+      <button class="btn-register" id="openRegister" type="button">Registro</button>
+      <button class="btn-login" id="openLogin" type="button">Iniciar Sesión</button>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="zodiac-ring"></div>
+    <div class="zodiac-ring zodiac-ring-2"></div>
+    <div class="hero-content">
+      <span class="hero-eyebrow">Mitología · Cosmos · Honor</span>
+      <h1 class="hero-title">CABALLEROS<br /><span class="hero-title-del">DEL</span><br />ZODIACO</h1>
+      <p class="hero-subtitle">Saint Seiya</p>
+      <p class="hero-desc">Desde las profundidades del cosmos hasta el Monte Olimpo, los Santos de Atenea han combatido para proteger la Tierra. Su arma más poderosa no es la armadura, sino el Cosmo que arde en su pecho.</p>
+      <div class="hero-cta">
+        <a href="#personajes" class="btn btn-primary">Conoce a los Santos</a>
+        <a href="#shop" class="btn btn-secondary">Visita la Tienda</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="lore" id="historia">
+    <div class="section-header">
+      <span class="section-tag">El universo de Saint Seiya</span>
+      <h2 class="section-title">El Cosmos de los Santos</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="lore-grid">
+      <div class="lore-card"><span class="lore-icon">*</span><h3>El Cosmo</h3><p>La energía cósmica latente en todo ser humano, capaz de transformar a un simple caballero en una leyenda viviente.</p></div>
+      <div class="lore-card"><span class="lore-icon">#</span><h3>Las Armaduras</h3><p>Las Cloth son armaduras sagradas conectadas a las constelaciones. Cada armadura protege y amplifica el Cosmo de su portador.</p></div>
+      <div class="lore-card"><span class="lore-icon">!</span><h3>Velocidad de la Luz</h3><p>Los Santos de Oro alcanzan velocidades increíbles. Su verdadero poder se mide por la fuerza del Cosmo interior.</p></div>
+      <div class="lore-card"><span class="lore-icon">@</span><h3>Atenea</h3><p>La diosa de la sabiduría reencarnada en Saori Kido. Los Santos luchan por proteger la Tierra y su justicia divina.</p></div>
+      <div class="lore-card"><span class="lore-icon">&amp;</span><h3>Las 12 Casas</h3><p>El Santuario está dominado por las 12 Casas del Zodiaco. Atravesarlas es la prueba final para cualquier caballero.</p></div>
+      <div class="lore-card"><span class="lore-icon">^</span><h3>El Séptimo Sentido</h3><p>El estado supremo que supera los límites humanos. Quienes lo despiertan pueden desafiar incluso a los dioses.</p></div>
+    </div>
+  </section>
+
+  <section class="characters" id="personajes">
+    <div class="section-header">
+      <span class="section-tag">Los Defensores de Atenea</span>
+      <h2 class="section-title">Caballeros del Zodiaco</h2>
+      <div class="section-line"></div>
+      <p class="section-desc">Descubre a los héroes que luchan con todo su Cosmo para proteger la paz en el mundo.</p>
+    </div>
+    <div class="cards-grid">
+      <div class="char-card">
+        <div class="char-avatar"><div class="avatar-fallback">P</div></div>
+        <div class="char-body">
+          <div class="char-zodiac">Constelación de Pegaso</div>
+          <div class="char-name">Seiya</div>
+          <div class="char-rank">Santo de Bronce · Protagonista</div>
+          <div class="char-cosmo"><span class="cosmo-label">Cosmo</span><div class="cosmo-bar"><div class="cosmo-fill" style="width:95%"></div></div></div>
+          <div class="char-cosmo"><span class="cosmo-label">Velocidad</span><div class="cosmo-bar"><div class="cosmo-fill" style="width:90%"></div></div></div>
+          <div class="char-technique">Meteoro de Pegaso</div>
+        </div>
+      </div>
+      <div class="char-card">
+        <div class="char-avatar"><div class="avatar-fallback">D</div></div>
+        <div class="char-body">
+          <div class="char-zodiac">Constelación del Dragón</div>
+          <div class="char-name">Shiryu</div>
+          <div class="char-rank">Santo de Bronce · Defensor</div>
+          <div class="char-cosmo"><span class="cosmo-label">Cosmo</span><div class="cosmo-bar"><div class="cosmo-fill" style="width:92%"></div></div></div>
+          <div class="char-cosmo"><span class="cosmo-label">Defensa</span><div class="cosmo-bar"><div class="cosmo-fill" style="width:99%"></div></div></div>
+          <div class="char-technique">Escudo de Rosetón</div>
+        </div>
+      </div>
+      <div class="char-card">
+        <div class="char-avatar"><div class="avatar-fallback">C</div></div>
+        <div class="char-body">
+          <div class="char-zodiac">Constelación del Cisne</div>
+          <div class="char-name">Hyoga</div>
+          <div class="char-rank">Santo de Bronce · Glacial</div>
+          <div class="char-cosmo"><span class="cosmo-label">Cosmo</span><div class="cosmo-bar"><div class="cosmo-fill" style="width:91%"></div></div></div>
+          <div class="char-cosmo"><span class="cosmo-label">Hielo</span><div class="cosmo-bar"><div class="cosmo-fill" style="width:97%"></div></div></div>
+          <div class="char-technique">Aurora Ejecución</div>
+        </div>
+      </div>
+      <div class="char-card">
+        <div class="char-avatar"><div class="avatar-fallback">A</div></div>
+        <div class="char-body">
+          <div class="char-zodiac">Constelación de Andrómeda</div>
+          <div class="char-name">Shun</div>
+          <div class="char-rank">Santo de Bronce · Cadenas</div>
+          <div class="char-cosmo"><span class="cosmo-label">Cosmo</span><div class="cosmo-bar"><div class="cosmo-fill" style="width:98%"></div></div></div>
+          <div class="char-cosmo"><span class="cosmo-label">Potencial</span><div class="cosmo-bar"><div class="cosmo-fill" style="width:100%"></div></div></div>
+          <div class="char-technique">Nebulosa Encadenada</div>
+        </div>
+      </div>
+      <div class="char-card">
+        <div class="char-avatar"><div class="avatar-fallback">F</div></div>
+        <div class="char-body">
+          <div class="char-zodiac">Constelación del Fénix</div>
+          <div class="char-name">Ikki</div>
+          <div class="char-rank">Santo de Bronce · Renacido</div>
+          <div class="char-cosmo"><span class="cosmo-label">Cosmo</span><div class="cosmo-bar"><div class="cosmo-fill" style="width:100%"></div></div></div>
+          <div class="char-cosmo"><span class="cosmo-label">Poder</span><div class="cosmo-bar"><div class="cosmo-fill" style="width:95%"></div></div></div>
+          <div class="char-technique">Fantasma del Fénix</div>
+        </div>
+      </div>
+      <div class="char-card">
+        <div class="char-avatar"><div class="avatar-fallback">G</div></div>
+        <div class="char-body">
+          <div class="char-zodiac">Constelación de Géminis</div>
+          <div class="char-name">Saga</div>
+          <div class="char-rank">Santo de Oro · Dualidad</div>
+          <div class="char-cosmo"><span class="cosmo-label">Cosmo</span><div class="cosmo-bar"><div class="cosmo-fill" style="width:100%"></div></div></div>
+          <div class="char-cosmo"><span class="cosmo-label">Magia</span><div class="cosmo-bar"><div class="cosmo-fill" style="width:100%"></div></div></div>
+          <div class="char-technique">Otra Dimensión</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="episodes-section" id="episodios">
+    <div class="section-header">
+      <span class="section-tag">Anime Original — Toei Animation</span>
+      <h2 class="section-title">Capítulos por Temporada</h2>
+      <div class="section-line"></div>
+      <p class="section-desc">Selecciona una temporada y explora cada episodio en el Santuario, Asgard, Poseidón y Hades.</p>
+    </div>
+    <div class="season-tabs">
+      <button class="season-btn active" data-season="1">Temporada 1<br /><small>Torneo Galáctico</small></button>
+      <button class="season-btn" data-season="2">Temporada 2<br /><small>Santuario</small></button>
+      <button class="season-btn" data-season="3">Temporada 3<br /><small>Asgard</small></button>
+      <button class="season-btn" data-season="4">Temporada 4<br /><small>Poseidón</small></button>
+      <button class="season-btn" data-season="5">OVAs Hades<br /><small>Inframundo</small></button>
+    </div>
+    <div class="episodes-panel active" id="season-1">
+      <div class="season-meta">
+        <h3>Temporada 1 — Gran Torneo Galáctico</h3>
+        <p>Episodios 1–26 · 1986–1987 · Arco introductorio</p>
+      </div>
+      <div class="episodes-grid" id="grid-1"></div>
+    </div>
+    <div class="episodes-panel" id="season-2">
+      <div class="season-meta">
+        <h3>Temporada 2 — Las 12 Casas del Zodiaco</h3>
+        <p>Episodios 27–73 · 1987–1988 · El arco más icónico</p>
+      </div>
+      <div class="episodes-grid" id="grid-2"></div>
+    </div>
+    <div class="episodes-panel" id="season-3">
+      <div class="season-meta">
+        <h3>Temporada 3 — La Guerra de Asgard</h3>
+        <p>Episodios 74–99 · 1988 · Los Guerreros Divinos</p>
+      </div>
+      <div class="episodes-grid" id="grid-3"></div>
+    </div>
+    <div class="episodes-panel" id="season-4">
+      <div class="season-meta">
+        <h3>Temporada 4 — La Guerra del Océano</h3>
+        <p>Episodios 100–114 · 1989–1990 · Poseidón despierta</p>
+      </div>
+      <div class="episodes-grid" id="grid-4"></div>
+    </div>
+    <div class="episodes-panel" id="season-5">
+      <div class="season-meta">
+        <h3>OVAs — El Inframundo de Hades</h3>
+        <p>13 OVAs · 2002–2008 · El clímax definitivo</p>
+      </div>
+      <div class="episodes-grid" id="grid-5"></div>
+    </div>
+  </section>
+
+  <section class="shop-section" id="shop">
+    <div class="section-header">
+      <span class="section-tag">Colección oficial</span>
+      <h2 class="section-title">Tienda del Santuario</h2>
+      <div class="section-line"></div>
+      <p class="section-desc">Figuras Myth Cloth, descargas HD y packs especiales para completar tu colección.</p>
+    </div>
+    <div class="shop-filters">
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="figura">Figuras</button>
+      <button class="filter-btn" data-filter="descarga">Descargas</button>
+    </div>
+    <div class="products-grid" id="productsGrid"></div>
+  </section>
+
+  <div class="cart-overlay" id="cartOverlay">
+    <aside class="cart-sidebar" id="cartSidebar">
+      <div class="cart-header">
+        <div class="cart-title">Carrito de Compra</div>
+        <button class="cart-close" id="cartClose" aria-label="Cerrar carrito">X</button>
+      </div>
+      <div class="cart-body" id="cartBody"></div>
+      <div class="cart-footer">
+        <div class="cart-subtotal">
+          <span>Total</span>
+          <span class="total-amount" id="cartTotal">$0</span>
+        </div>
+        <p class="cart-note">Añade productos para ver el total actualizado.</p>
+        <button class="checkout-btn" id="checkoutBtn" type="button">Finalizar Compra</button>
+        <button class="clear-cart-btn" id="clearCart" type="button">Vaciar Carrito</button>
+      </div>
+    </aside>
+  </div>
+
+  <div class="modal-overlay" id="checkoutModal">
+    <div class="checkout-modal">
+      <button class="modal-close" id="checkoutClose" aria-label="Cerrar">X</button>
+      <div class="modal-logo">Resumen de Compra</div>
+      <div id="checkoutSummary"></div>
+      <form id="checkoutForm">
+        <button class="form-submit" type="submit">Confirmar Compra</button>
+      </form>
+      <div id="checkoutSuccess" style="display:none; text-align:center; margin-top:1rem; color:#6bffb0;">Compra completada con éxito.</div>
+    </div>
+  </div>
+
+  <section class="timeline-section" id="timeline">
+    <div class="section-header">
+      <span class="section-tag">La Épica Completa</span>
+      <h2 class="section-title">Cronología del Cosmos</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-left"></div>
+        <div class="tl-center"><div class="tl-node"></div><div class="tl-year">1986</div></div>
+        <div class="tl-right"><div class="tl-card"><span class="tl-card-tag">Origen</span><h3>Nacimiento del Manga</h3><p>Masami Kurumada publica Saint Seiya. Seiya obtiene la Armadura de Pegaso y comienza la batalla por el Santuario.</p></div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-card"><span class="tl-card-tag">Animación</span><h3>El Anime llega a las pantallas</h3><p>Toei Animation transforma la saga en un fenómeno mundial con combates míticos y guerreros celestiales.</p></div></div>
+        <div class="tl-center"><div class="tl-node"></div><div class="tl-year">1987</div></div>
+        <div class="tl-right"></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left"></div>
+        <div class="tl-center"><div class="tl-node"></div><div class="tl-year">1987–88</div></div>
+        <div class="tl-right"><div class="tl-card"><span class="tl-card-tag">Santuario</span><h3>Las 12 Casas</h3><p>La prueba decisiva: enfrentarse a los Santos de Oro y rescatar a Atenea en 12 horas.</p></div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-card"><span class="tl-card-tag">Arco</span><h3>Pleitos de Dioses</h3><p>Asgard y Poseidón desafían a los Santos en batallas que trascienden el mundo mortal.</p></div></div>
+        <div class="tl-center"><div class="tl-node"></div><div class="tl-year">1989</div></div>
+        <div class="tl-right"></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left"></div>
+        <div class="tl-center"><div class="tl-node"></div><div class="tl-year">2006</div></div>
+        <div class="tl-right"><div class="tl-card"><span class="tl-card-tag">Hades</span><h3>OVAs Definitivas</h3><p>La saga continúa con las OVAs de Hades: Elíseo e Inframundo, el clímax épico de la historia.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Saint Seiya</div>
+    <p class="footer-quote">"Enciende tu Cosmo pequeño" — Dohko de Libra</p>
+    <p class="footer-copy">© Masami Kurumada / Toei Animation — Fan Page sin fines comerciales</p>
+  </footer>
+
+  <script src="js/episodes-data.js"></script>
+  <script src="js/shop-data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
